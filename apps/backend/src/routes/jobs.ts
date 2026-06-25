@@ -106,6 +106,11 @@ router.post('/sync', async (req: Request, res: Response) => {
       status: string;
       notes?: string;
       technicianId?: string;
+      title?: string;
+      priority?: string;
+      location?: string;
+      checklist?: any;
+      clientUpdatedAt?: string | Date;
     };
 
     if (!payload.jobId) {
@@ -196,7 +201,6 @@ router.post('/sync', async (req: Request, res: Response) => {
 
     // Fire SSE event so connected dashboards update instantly
     jobEventEmitter.emit('job_updated', {
-      id: updated.id,
       ...updated,
       column: updated.status, // Frontend maps status to column
     });
