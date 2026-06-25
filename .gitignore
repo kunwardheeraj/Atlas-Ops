@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+.next/
+out/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+
+# Flutter / Mobile ignores
+apps/mobile/.dart_tool/
+apps/mobile/.idea/
+apps/mobile/.vscode/
+apps/mobile/build/
+apps/mobile/*.iml
