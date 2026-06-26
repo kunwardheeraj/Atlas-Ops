@@ -80,13 +80,17 @@ function DropdownMenuItem({
   className,
   inset,
   variant = "default",
+  asChild,
   ...props
 }: MenuPrimitive.Item.Props & {
   inset?: boolean
   variant?: "default" | "destructive"
+  asChild?: boolean
 }) {
   return (
     <MenuPrimitive.Item
+      // @ts-expect-error Radix UI primitive typing does not expose asChild directly in this version
+      asChild={asChild}
       data-slot="dropdown-menu-item"
       data-inset={inset}
       data-variant={variant}
