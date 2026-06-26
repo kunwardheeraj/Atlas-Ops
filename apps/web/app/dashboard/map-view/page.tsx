@@ -59,7 +59,7 @@ export default function MapViewPage() {
   useEffect(() => {
     async function fetchJobs() {
       try {
-        const res = await fetch("http://localhost:3001/api/jobs");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/jobs`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
         setJobs(json.data ?? []);

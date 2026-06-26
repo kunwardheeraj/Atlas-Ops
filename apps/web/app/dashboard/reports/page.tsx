@@ -239,7 +239,7 @@ export default function AIReportsPage() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/reports")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/reports`)
       .then((res) => {
         if (!res.ok) throw new Error(`Server returned ${res.status}`);
         return res.json();

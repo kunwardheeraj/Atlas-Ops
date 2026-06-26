@@ -355,7 +355,7 @@ export function JobBoard() {
 
   useEffect(() => {
     // 1. Initial Fetch
-    fetch("http://localhost:3001/api/jobs")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/jobs`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success && json.data) {
@@ -369,7 +369,7 @@ export function JobBoard() {
       });
 
     // 2. Setup Server-Sent Events (SSE)
-    const eventSource = new EventSource("http://localhost:3001/api/events");
+    const eventSource = new EventSource(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/events`);
 
     eventSource.onmessage = (event) => {
       try {
