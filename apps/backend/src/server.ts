@@ -12,7 +12,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000', 'https://atlas-ops-dashboard.vercel.app'];
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 // ─── Health Check ─────────────────────────────────────────────────────────────

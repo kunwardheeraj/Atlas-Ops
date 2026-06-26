@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 import '../database/db_helper.dart';
 
 class SyncService {
-  final String _backendUrl = 'http://10.0.2.2:3001/api/jobs/sync';
+  final String _backendUrl = 'https://atlas-ops-backend.onrender.com/api/jobs/sync';
   final Uuid _uuid = const Uuid();
 
   /// Reads pending updates from the local SQLite sync_queue,
